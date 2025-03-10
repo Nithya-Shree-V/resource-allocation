@@ -32,8 +32,7 @@ public class MyController {
 	}
 
 	@PostMapping("/search")
-	public String search(@RequestParam String skills, @RequestParam int minexperience, @RequestParam int maxexperience,
-			Resource resource, ModelMap map) {
+	public String search(@RequestParam String skills, @RequestParam int minexperience, @RequestParam int maxexperience,Resource resource, ModelMap map) {
 		return service.searchData(skills, minexperience, maxexperience, map);
 	}
 }

@@ -1,6 +1,7 @@
 package com.estuate.resourceallocation.service;
 
 
+import java.util.Arrays;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -14,7 +15,8 @@ public class MyService {
 	ResourceRepository repository;
 
 	public String searchData(String skills, int minexperience,int maxexperience, ModelMap map) {
-		List<Resource> resources = repository.findBySkillsAndExperienceRange(skills, minexperience, maxexperience);
+		 List<String> skillsInput = Arrays.asList(skills.split("\\s*,\\s*"));
+		List<Resource> resources = repository.findBySkillsAndExperienceRange(skillsInput, minexperience, maxexperience);
 		map.put("resources", resources);
 		return  "result.html";
 		
